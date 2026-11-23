@@ -1,0 +1,33 @@
+{
+  "name": "@costa/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@costa/core": "workspace:*",
+    "@costa/tokens": "workspace:*",
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "@costa/tsconfig": "workspace:*",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  }
+}
