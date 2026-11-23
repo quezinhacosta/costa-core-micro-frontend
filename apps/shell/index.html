@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Costa Core — MFE Shell Orchestrator</title>
+  </head>
+  <body>
+    <costa-shell brand="Costa Portal (Host)">
+      <div slot="nav" style="display: flex; gap: 1rem; align-items: center;">
+        <button id="nav-dashboard" style="background: none; border: none; font-size: 0.95rem; font-weight: 600; color: var(--costa-primary); cursor: pointer;">
+          📊 Dashboard (Port 5001)
+        </button>
+        <button id="nav-settings" style="background: none; border: none; font-size: 0.95rem; font-weight: 500; color: var(--costa-text-muted); cursor: pointer;">
+          ⚙️ Configurações (Port 5002)
+        </button>
+      </div>
+
+      <div slot="actions" style="display: flex; gap: 0.5rem; align-items: center;">
+        <span id="session-badge" style="font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 9999px; background: var(--costa-surface-hover); border: 1px solid var(--costa-border);">
+          👤 Não autenticado
+        </span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <section style="background: var(--costa-surface); border: 1px solid var(--costa-border); border-radius: 8px; padding: 1rem;">
+          <h2 style="margin-top: 0; font-size: 1.25rem;">Orquestrador Host MFE</h2>
+          <p style="color: var(--costa-text-muted); margin-bottom: 0;">
+            Este Shell consome <code>@costa/tokens</code>, <code>@costa/core</code> e <code>@costa/ui</code> como singletons e carrega os remotes via Module Federation dentro de boundaries de resiliência.
+          </p>
+        </section>
+
+        <!-- Remote Container with Costa MFE Boundary -->
+        <costa-mfe-boundary id="active-boundary" mfe-id="mfe-dashboard" timeout-ms="5000">
+          <div id="mfe-mount-point" style="min-height: 200px;">
+            <p style="color: var(--costa-text-muted);">Carregando microfrontend remoto...</p>
+          </div>
+        </costa-mfe-boundary>
+      </div>
+    </costa-shell>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

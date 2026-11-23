@@ -1,0 +1,23 @@
+{
+  "name": "@costa/mfe-settings",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5002",
+    "build": "vite build",
+    "preview": "vite preview --port 5002",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@costa/core": "workspace:*",
+    "@costa/tokens": "workspace:*",
+    "@costa/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@costa/tsconfig": "workspace:*",
+    "@originjs/vite-plugin-federation": "^1.3.9",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.14"
+  }
+}
